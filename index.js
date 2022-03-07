@@ -28,7 +28,7 @@ async function run() {
       res.json(result);
     });
 
-    app.get("/users/:id", async (req, res) => {
+    app.get("/user/:id", async (req, res) => {
       const userId = req.params.id;
       let todoApi = "https://jsonplaceholder.typicode.com/todos";
       let userApi = `https://jsonplaceholder.typicode.com/users/${userId}`;
