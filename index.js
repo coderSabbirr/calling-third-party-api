@@ -50,7 +50,7 @@ async function run() {
               name,
               email,
               phone,
-              todo: todoResponse.data,
+              todos: todoResponse.data,
             };
 
             res.json(userDeatils);
