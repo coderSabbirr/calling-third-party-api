@@ -3,21 +3,21 @@ const cors = require("cors");
 const app = express();
 const axios = require("axios");
 const port = process.env.PORT || 5000;
+
 app.use(cors());
 app.use(express.json());
-
 async function run() {
   try {
+    // todo api
     app.get("/todos", async (req, res) => {
       async function getTodo() {
         try {
           const response = await axios.get(
             "https://jsonplaceholder.typicode.com/todos"
           );
-
           return response.data;
         } catch (error) {
-          console.error(error);
+          //  on errors.
         }
       }
       const todosCollection = await getTodo();
@@ -32,8 +32,9 @@ async function run() {
       const userId = req.params.id;
       let todoApi = "https://jsonplaceholder.typicode.com/todos";
       let userApi = `https://jsonplaceholder.typicode.com/users/${userId}`;
-      const todoRequest = axios.get(todoApi);
-      const userRequest = axios.get(userApi);
+
+      const todoRequest = axios.get(todoApi); //todo api request
+      const userRequest = axios.get(userApi); // users api request
 
       axios
         .all([todoRequest, userRequest])
